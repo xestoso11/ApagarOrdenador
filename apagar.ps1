@@ -15,15 +15,14 @@ $minutosSegundos = $var2 * 60
 
 #Apaga el ordenador despues del tiempo indicado
 Write-Host "El ordenador se apagara en un total" $totalDeSegundos "segundos"
-
-shutdown -s -t $totalDeSegundos
+if ($totalDeSegundos -ne "0"){
+    shutdown -s -t $totalDeSegundos
+}
 
 #cancela el apagado 
-Write-Host "Si desea cancelar el apagado programado presiona la tecla y, si no presione cualquier tecla"
+Write-Host "¿Desea cancelar el apagado programado? [S] Si [N] No (el valor predeterminado es "N")"
 $apagado = Read-Host
-
-if ($apagado -eq "y"){
-
+if ($apagado -eq "S"){
     shutdown -a
 }
 
